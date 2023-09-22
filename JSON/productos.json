@@ -1,61 +1,68 @@
-{
-    "productos": [
+[
       {
+        "id":1,
         "marca": "nike",
         "color": "rojo",
         "talle": 41,
         "precio": 45000,
-        "imagen": "../images/nikeroja.jpg"
+        "imagen": "/images/nikeroja.jpg"
       },
       {
+        "id":2,
         "marca": "nike",
         "color": "azul",
         "talle": 40,
         "precio": 45000,
-        "imagen": "../images/nikeazul.jpg"
+        "imagen": "/images/nikeazul.jpg"
       },
       {
+        "id":3,
         "marca": "nike",
         "color": "azul",
         "talle": 41,
         "precio": 45000,
-        "imagen": "../images/nikeazul.jpg"
+        "imagen": "/images/nikeazul.jpg"
       },
       {
+        "id":4,
         "marca": "adidas",
         "color": "blanco",
         "talle": 40,
         "precio": 40000,
-        "imagen": "../images/adidasblanca.jpg"
+        "imagen": "/images/adidasblanca.jpg"
       },
       {
+        "id":5,
         "marca": "adidas",
         "color": "blanco",
         "talle": 41,
         "precio": 40000,
-        "imagen": "../images/adidasblanca.jpg"
+        "imagen": "/images/adidasblanca.jpg"
       },
       {
+        "id":6,
         "marca": "puma",
         "color": "negro",
         "talle": 43,
         "precio": 35000,
-        "imagen": "../images/pumanegra.jpg"
+        "imagen": "/images/pumanegra.jpg"
       },
       {
+        "id":7,
         "marca": "reebok",
         "color": "azul",
         "talle": 44,
         "precio": 30000,
-        "imagen": "../images/reebokazul.jpg"
+        "imagen": "/images/reebokazul.jpg"
       },
       {
+        "id":8,
         "marca": "converse",
         "color": "rojo",
         "talle": 45,
         "precio": 25000,
-        "imagen": "../images/converseroja.jpg"
+        "imagen": "/images/converseroja.jpg"
       }
     ]
-  }
+
   

@@ -1,0 +1,100 @@
+      <!-- <div class="product">
+        <figure>
+          <img src="../images/nikeroja.jpg" alt="nikeroja" />
+        </figure>
+        <div class="info-product">
+          <h2>Zapatillas Nike Roja</h2>
+          <p class="precio">$45000</p>
+          <button class="botonAñadirCarrito">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <figure>
+          <img src="../images/nikeazul.jpeg" alt="nikeazul" />
+        </figure>
+        <div class="info-product">
+          <h2>Zapatillas Nike Azul</h2>
+          <p class="precio">$45000</p>
+          <button class="botonAñadirCarrito">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <figure>
+          <img src="../images/adidasblanca.jpeg" alt="adidasblanca" />
+        </figure>
+        <div class="info-product">
+          <h2>Zapatillas adidas</h2>
+          <p class="precio">$45000</p>
+          <button class="botonAñadirCarrito">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <figure>
+          <img src="../images/pumanegra.jpeg" alt="pumanegra" />
+        </figure>
+        <div class="info-product">
+          <h2>Zapatillas Puma</h2>
+          <p class="precio">$45000</p>
+          <button class="botonAñadirCarrito">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <figure>
+          <img src="../images/reebokazul.jpeg" alt="reebokazul" />
+        </figure>
+        <div class="info-product">
+          <h2>Zapatillas Reebok</h2>
+          <p class="precio">$45000</p>
+          <button class="botonAñadirCarrito">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <figure>
+          <img src="../images/converseroja.jpeg" alt="converse" />
+        </figure>
+        <div class="info-product">
+          <h2>Zapatillas Converse</h2>
+          <p class="precio">$45000</p>
+          <button class="botonAñadirCarrito">Añadir al carrito</button>
+        </div>
+      </div> -->
+
+
+
+
+
+      // document.getElementById("loginForm").addEventListener("submit", function(event) {
+        //     const username = document.getElementById("username").value;
+        //     const password = document.getElementById("password").value;
+        
+        //     if (!username || !password) {
+        //         alert("Por favor, completa ambos campos.");
+        //         event.preventDefault(); // Evita que el formulario se envíe
+        //     }
+        // });
+        
+        // document.getElementById("loginForm").addEventListener("submit", function(e) {
+        //     const username = document.getElementById("username").value;
+        //     const password = document.getElementById("password").value;
+        
+        //     if (!username || !password) {
+        //         alert("Por favor, completa ambos campos.");
+        //         e.preventDefault();
+        //     } else {
+        //         // Crear un objeto para representar al usuario
+        //         const user = {
+        //             username: username,
+        //         };
+        
+        //         // Guardar el usuario en el localStorage
+        //         localStorage.setItem("user", JSON.stringify(user));
+        
+        //         // Redirigir al usuario a la página "carrito.html"
+        //         window.location.href = "carrito.html";
+        //     }
+        // });
