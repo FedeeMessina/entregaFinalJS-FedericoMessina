@@ -1,4 +1,4 @@
-//URL del json
+//URL DEL JSON
 const url = "../JSON/productos.json";
 
 //TRAYENDO EL JSON CON LOS PORDUCTOS
@@ -104,16 +104,22 @@ const llenarCarrito = () => {
       <p>Cantidad :${producto.cantidad}</p> 
       <h3>${producto.marca}</h3>
       <p>Importe : ${producto.cantidad * producto.precio}</p>
+      <span class="eliminar-producto">❌</span>
        `;
 
     modalContainer.append(carritoContenido);
 
-    let eliminar = document.createElement("span");
-    eliminar.innerText = "❌";
-    eliminar.className = "eliminar-producto";
-    carritoContenido.append(eliminar);
+    let eliminar = carritoContenido.querySelector(".eliminar-producto");
+    eliminar.addEventListener("click", () => {
+      eliminarProducto(producto.id);
+    })
 
-    eliminar.addEventListener("click", eliminarProducto);
+    // let eliminar = document.createElement("span");
+    // eliminar.innerText = "";
+    // eliminar.className = "eliminar-producto";
+    // carritoContenido.append(eliminar);
+
+    // eliminar.addEventListener("click", eliminarProducto);
   });
 
   const total = productosDelCarrito.reduce(
@@ -129,8 +135,10 @@ const llenarCarrito = () => {
 
 verCarrito.addEventListener("click", llenarCarrito);
 
-const eliminarProducto = () => {
-  const buscarId = productosDelCarrito.find((element) => element.id);
+
+//FUNCION QUE ELIMINA EL PRODUCTO
+const eliminarProducto = (id) => {
+  const buscarId = productosDelCarrito.find((element) => element.id === id);
 
   productosDelCarrito = productosDelCarrito.filter((carritoId) => {
     return carritoId !== buscarId;
