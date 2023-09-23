@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap"
       rel="stylesheet"
@@ -14,17 +15,20 @@
   <body>
     <header>
       <h1>TIENDA</h1>
-      <h2 class="ver-carrito" id=""ver-carrito>🛒<span id="cantidadCarrito" 
-        class="cantidad-carrito"></span></h2>
-      </header>
-<!-- ACA SE MUESTRAN TODOS LOS PRODUCTOS -->
-    <div class= "container-product" id="container-product"></div>
-    
-<!-- MODAL CARRITO -->
-<div id= "modal-container" class="modal-container"></div>
+      <h2 class="ver-carrito" id="" ver-carrito>
+        🛒<span id="cantidadCarrito" class="cantidad-carrito"></span>
+      </h2>
+    </header>
+    <!-- ACA SE MUESTRAN TODOS LOS PRODUCTOS -->
+    <div class="container-product" id="container-product"></div>
 
+    <!-- MODAL CARRITO -->
+    <div id="modal-container" class="modal-container"></div>
 
-
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="/js/app.js"></script>
   </body>
 </html>

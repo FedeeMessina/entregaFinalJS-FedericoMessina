@@ -69,6 +69,11 @@ function agregarAlCarrito(e) {
     
     carritoContador();
     saveLocal();
+    Toastify({
+      text: "Has agregado productos al carrito!",
+      duration: 1500,
+      position: "left"
+      }).showToast();
   });
 }
 
