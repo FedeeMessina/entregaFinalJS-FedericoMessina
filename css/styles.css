@@ -149,6 +149,7 @@ header {
   font-size: 25px;
   flex-direction: row;
   justify-content: center;
-  margin: auto;
   margin-bottom: 5px;
+  text-align: center;
+  background-color: rgba(58, 11, 168, 0.2);
 }
