@@ -3,11 +3,14 @@ const url = "../JSON/productos.json";
 
 //TRAYENDO EL JSON CON LOS PORDUCTOS
 async function obtenerProductos(url) {
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
-
 //ONSTANTES PARA IR AGREGANDOI EL HTML
 const contenedorTarjetas = document.querySelector("#container-product");
 const verCarrito = document.querySelector(".ver-carrito");
@@ -15,7 +18,7 @@ const modalContainer = document.getElementById("modal-container");
 const cantidadCarrito = document.getElementById("cantidadCarrito");
 
 //RECUPERO SI ES QUE HAY ALGO EN EL LOCAL STORAGE Y SINO CREO UN ARRAY PARA EL CARRITO EL CUAL LUEGO VOY A IR LLENANDO
-let productosDelCarrito =  JSON.parse(localStorage.getItem("carrito")) || [];
+let productosDelCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //FUNCION QUE ME MUESTRA TODOS LOS PRODFUCTOS EN PANTALLA Y ME CREA LAS CARDS
 function mostrarProductos() {
@@ -58,7 +61,8 @@ function agregarAlCarrito(e) {
     );
     console.log(repeat);
 
-    repeat ? productosDelCarrito.forEach((prod) => {
+    repeat
+      ? productosDelCarrito.forEach((prod) => {
           if (prod.id === prodEncont.id) {
             prod.cantidad++;
           }
@@ -66,14 +70,14 @@ function agregarAlCarrito(e) {
       : (productosDelCarrito.push(prodEncont),
         console.log("productos del carrito"),
         console.log(productosDelCarrito));
-    
+
     carritoContador();
     saveLocal();
     Toastify({
       text: "Has agregado productos al carrito!",
       duration: 1500,
-      position: "left"
-      }).showToast();
+      position: "left",
+    }).showToast();
   });
 }
 
@@ -117,9 +121,7 @@ const llenarCarrito = () => {
     let eliminar = carritoContenido.querySelector(".eliminar-producto");
     eliminar.addEventListener("click", () => {
       eliminarProducto(producto.id);
-    })
-
-    
+    });
   });
 
   const total = productosDelCarrito.reduce(
@@ -134,7 +136,6 @@ const llenarCarrito = () => {
 };
 
 verCarrito.addEventListener("click", llenarCarrito);
-
 
 //FUNCION QUE ELIMINA EL PRODUCTO
 const eliminarProducto = (id) => {
@@ -154,18 +155,14 @@ const carritoContador = () => {
 
   const carritoLength = productosDelCarrito.length;
 
-  localStorage.setItem('carritoLength', JSON.stringify(carritoLength));
+  localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
 
-  cantidadCarrito.innerText = JSON.parse(localStorage.getItem('carritoLength'));
+  cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 };
 
 const saveLocal = () => {
   localStorage.setItem("carrito", JSON.stringify(productosDelCarrito));
 };
 
-
-
 mostrarProductos();
 carritoContador();
-
-
