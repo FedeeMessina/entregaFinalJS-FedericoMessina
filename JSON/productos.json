@@ -16,26 +16,10 @@
         "imagen": "/images/nikeazul.jpeg"
       },
       {
-        "id":3,
-        "marca": "nike",
-        "color": "azul",
-        "talle": 41,
-        "precio": 45000,
-        "imagen": "/images/nikeazul.jpeg"
-      },
-      {
         "id":4,
         "marca": "adidas",
         "color": "blanco",
         "talle": 40,
-        "precio": 40000,
-        "imagen": "/images/adidasblanca.jpeg"
-      },
-      {
-        "id":5,
-        "marca": "adidas",
-        "color": "blanco",
-        "talle": 41,
         "precio": 40000,
         "imagen": "/images/adidasblanca.jpeg"
       },
