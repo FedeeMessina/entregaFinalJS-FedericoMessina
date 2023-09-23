@@ -24,7 +24,7 @@ function mostrarProductos(productos) {
   <div class="info-product">
     <h2>${prod.marca}</h2>
     <p class="precio">$${prod.precio}</p>
-    <button class="botonAñadirCarrito" id= ${prod.id}>Añadir al carrito</button>
+    <button class="boton-añadir-carrito" id= ${prod.id}>Añadir al carrito</button>
   </div>
   `;
     contenedorTarjetas.appendChild(tarjetas);
@@ -38,24 +38,24 @@ function mostrarProductos(productos) {
       marca: prod.marca,
       precio: prod.precio,
     });
-    console.log(botonAñadirCarrito);
+    console.log(productosDelCarrito);
   });
 }
 
 
+//ESCONDE O NO EL MODAL DEL CARRITO DE COMPRAS
+  const iconoCarrito = document.querySelector(".container-carrito-icono");
+  const containerCarritoProductos = document.querySelector(
+    ".container-carrito-productos"
+ );
+  iconoCarrito.addEventListener("click", () => {
+    containerCarritoProductos.classList.toggle("hidden-carrito");
+  });
 
 
 
 
-// const botonAñadirCarrito =document.querySelector(".botonAñadirCarrito")
 
-//  const botonCarrito = document.querySelector(".container-carrito-icono");
-//  const containerCarritoProductos = document.querySelector(
-//    ".container-carrito-productos"
-//  );
-//  botonCarrito.addEventListener("click", () => {
-//    containerCarritoProductos.classList.toggle("hidden-carrito");
-//  });
 
 //  const carritoInfo = document.querySelector(".carrito-productos");
 //  const rowProduct = document.querySelector(".row-producto");
