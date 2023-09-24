@@ -22,7 +22,7 @@ let productosDelCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //FUNCION QUE ME MUESTRA TODOS LOS PRODUCTOS EN PANTALLA Y ME CREA LAS CARDS
 function mostrarProductos() {
-  obtenerProductos("../JSON/productos.json")
+  obtenerProductos("./JSON/productos.json")
     .then((productos) => {
       productos.forEach((prod) => {
         //CREO LAS CARDS DONDE SE ME VAN A RENDERIZAR LOS PRODUCTOS
