@@ -1,7 +1,7 @@
 //URL DEL JSON
 const url = "../JSON/productos.json";
 
-//TRAYENDO EL JSON CON LOS PORDUCTOS
+//TRAYENDO EL JSON CON LOS PRODUCTOS MEDIANTE UNA FUNCION ASINCRONA
 async function obtenerProductos(url) {
   try {
     const res = await fetch(url);
@@ -11,7 +11,7 @@ async function obtenerProductos(url) {
     console.log(error);
   }
 }
-//ONSTANTES PARA IR AGREGANDOI EL HTML
+//CONSTANTES PARA IR AGREGANDO EL HTML
 const contenedorTarjetas = document.querySelector("#container-product");
 const verCarrito = document.querySelector(".ver-carrito");
 const modalContainer = document.getElementById("modal-container");
@@ -20,12 +20,12 @@ const cantidadCarrito = document.getElementById("cantidadCarrito");
 //RECUPERO SI ES QUE HAY ALGO EN EL LOCAL STORAGE Y SINO CREO UN ARRAY PARA EL CARRITO EL CUAL LUEGO VOY A IR LLENANDO
 let productosDelCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-//FUNCION QUE ME MUESTRA TODOS LOS PRODFUCTOS EN PANTALLA Y ME CREA LAS CARDS
+//FUNCION QUE ME MUESTRA TODOS LOS PRODUCTOS EN PANTALLA Y ME CREA LAS CARDS
 function mostrarProductos() {
   obtenerProductos("../JSON/productos.json")
     .then((productos) => {
       productos.forEach((prod) => {
-        //creo las cards para que se me rendericen los productos en el html luego
+        //CREO LAS CARDS DONDE SE ME VAN A RENDERIZAR LOS PRODUCTOS
         let tarjetas = document.createElement("div");
         tarjetas.className = "product";
 
@@ -39,7 +39,7 @@ function mostrarProductos() {
     </div>
     `;
         contenedorTarjetas.appendChild(tarjetas);
-
+        //ESTE BOTON ME CAPTURA EL ID DEL PRODUCTO!
         const botonAlCarrito = document.getElementById(`${prod.id}`);
         botonAlCarrito.addEventListener("click", agregarAlCarrito);
       });
@@ -52,15 +52,15 @@ function mostrarProductos() {
 //FUNCION QUE ME AGREGA LOS PRODUCTOS AL CARRITO
 function agregarAlCarrito(e) {
   const id = e.target.id;
-
+  //OBTENGO LOS PRODUCTOS DEL JSON PARA IR AGREGANDOLOS AL CARRITO
   obtenerProductos("../JSON/productos.json").then((productos) => {
     const prodEncont = productos.find((p) => p.id === parseInt(id));
-
+    //ESTA FUNCION LO QUE HACE ES QUE SI HAY ALGUNO REPETIDO ME TIRE TRUE
     const repeat = productosDelCarrito.some(
       (repeatProduct) => repeatProduct.id === prodEncont.id
     );
     console.log(repeat);
-
+      //IF TERNARIO QUE HACE QUE SI EL REPEAT DA TRUE NO ME LO VUELVA A MANDAR TODO EL OBJETO SINO QUE LE CAMBIE LA PROPIEDAD CANTIDAD Y LE SUME 1
     repeat
       ? productosDelCarrito.forEach((prod) => {
           if (prod.id === prodEncont.id) {
@@ -70,7 +70,7 @@ function agregarAlCarrito(e) {
       : (productosDelCarrito.push(prodEncont),
         console.log("productos del carrito"),
         console.log(productosDelCarrito));
-
+    //INVOCO FUNCIONES: 1° EL CONTADOR ROJITO DEL ICONO. 2° FUNCION PARA GUARDAR EL LOCAL STORAGE. 3° UN TOASTIFY QUE CADA VEZ Q AGREGO UN PRODUCTO SALE UN ALERT Q AVISA
     carritoContador();
     saveLocal();
     Toastify({
@@ -83,11 +83,11 @@ function agregarAlCarrito(e) {
 
 //FUNCION QUE ME MUESTRA EL MODAL DEL CARRITO CON SUS PRODUCTOS
 const llenarCarrito = () => {
-  //vacio el contenedor para que no se repita cada vez que clickeo
+  //VACIO EL CONTENEDOR PARA QUE NO SE REPITA CADA VEZ QUE CLICKEO
   modalContainer.innerHTML = "";
 
   modalContainer.style.display = "flex";
-  //voy creando el modal y agregandole su info
+  //VOY CREANDO EL MODAL Y AGREGANDOLE SU CONTENIDO
   const modalHeader = document.createElement("div");
   modalHeader.className = "modal-header";
   modalHeader.innerHTML = `
@@ -105,7 +105,7 @@ const llenarCarrito = () => {
   });
 
   modalHeader.append(modalButton);
-
+//HAGO UN FOR EACH PARA QUE EN ESA RECORRIDA ME TRAIGA LA INFO QUE QUIERO MOSTRAR EN EL CARRITO,ES DECIR MARCA CANTIDAD PRECIO Y LUEEEGO EL TOTAL
   productosDelCarrito.forEach((producto) => {
     let carritoContenido = document.createElement("div");
     carritoContenido.className = "modal-content";
@@ -117,13 +117,13 @@ const llenarCarrito = () => {
        `;
 
     modalContainer.append(carritoContenido);
-
+    //CAPTURO EL BOTON PARA ELIMINAR EL PRODUCTO, LE PASO EL EVENTO CLICK PARA QUE CUANDO PASE ESTE EVENTO SE EJECUTE LA FUNCION
     let eliminar = carritoContenido.querySelector(".eliminar-producto");
     eliminar.addEventListener("click", () => {
       eliminarProducto(producto.id);
     });
   });
-
+//USO EL METODO REDUCE CON EL ACUMULADOR PARA QUE ME HAGA LA CUENTA TOTAL DE LA COMPRA
   const total = productosDelCarrito.reduce(
     (acc, el) => acc + el.precio * el.cantidad,
     0
@@ -140,7 +140,7 @@ verCarrito.addEventListener("click", llenarCarrito);
 //FUNCION QUE ELIMINA EL PRODUCTO
 const eliminarProducto = (id) => {
   const buscarId = productosDelCarrito.find((element) => element.id === id);
-
+//ACA HAGO UN FILTER PARA QUE ME ELIMINE EL PRODUCTO DESEADO Y NO EL PRIMERO DE LA LISTA
   productosDelCarrito = productosDelCarrito.filter((carritoId) => {
     return carritoId !== buscarId;
   });
@@ -150,19 +150,23 @@ const eliminarProducto = (id) => {
   llenarCarrito();
 };
 
+//FUNCION PARA QUE CUANDO SE AGREGA UN ITEM ME APAREZCA LA CANTIDAD DE ITEMS DIFERENTES,NO LA TOTAL!!! LOS DIFERENTES! LA CANTIDADES DE CADA ITEM APARECEN DENTRO DEL MODAL
 const carritoContador = () => {
   cantidadCarrito.style.display = "block";
 
   const carritoLength = productosDelCarrito.length;
-
+//ACA ALMACENO LA CANTIDAD DE ITEMS DISTINTOS EN EL LOCAL STORAGE
   localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
 
   cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 };
 
+//FUNCION PARA ALMACENAR LOS PRODUCTOS DEL CARRITO EN EL LOCAL STORAGE
 const saveLocal = () => {
   localStorage.setItem("carrito", JSON.stringify(productosDelCarrito));
 };
 
+
+//INVOCO LAS FUNCIONES PARA QUE SUCEDA LA MAGIA!!!
 mostrarProductos();
 carritoContador();
