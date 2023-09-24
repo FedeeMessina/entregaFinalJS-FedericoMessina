@@ -71,6 +71,7 @@ function agregarAlCarrito(e) {
         console.log("productos del carrito"),
         console.log(productosDelCarrito));
     //INVOCO FUNCIONES: 1° EL CONTADOR ROJITO DEL ICONO. 2° FUNCION PARA GUARDAR EL LOCAL STORAGE. 3° UN TOASTIFY QUE CADA VEZ Q AGREGO UN PRODUCTO SALE UN ALERT Q AVISA
+    llenarCarrito();
     carritoContador();
     saveLocal();
     Toastify({
@@ -83,6 +84,10 @@ function agregarAlCarrito(e) {
 
 //FUNCION QUE ME MUESTRA EL MODAL DEL CARRITO CON SUS PRODUCTOS
 const llenarCarrito = () => {
+  if (productosDelCarrito.length === 0) {
+    modalContainer.style.display = "none"; // Oculta el modal si el carrito está vacío
+    return;
+  }
   //VACIO EL CONTENEDOR PARA QUE NO SE REPITA CADA VEZ QUE CLICKEO
   modalContainer.innerHTML = "";
 
