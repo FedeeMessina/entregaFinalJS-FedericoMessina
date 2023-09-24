@@ -1,5 +1,5 @@
 //URL DEL JSON
-const url = "../JSON/productos.json";
+const url = "./JSON/productos.json";
 
 //TRAYENDO EL JSON CON LOS PRODUCTOS MEDIANTE UNA FUNCION ASINCRONA
 async function obtenerProductos(url) {
@@ -53,7 +53,7 @@ function mostrarProductos() {
 function agregarAlCarrito(e) {
   const id = e.target.id;
   //OBTENGO LOS PRODUCTOS DEL JSON PARA IR AGREGANDOLOS AL CARRITO
-  obtenerProductos("../JSON/productos.json").then((productos) => {
+  obtenerProductos("./JSON/productos.json").then((productos) => {
     const prodEncont = productos.find((p) => p.id === parseInt(id));
     //ESTA FUNCION LO QUE HACE ES QUE SI HAY ALGUNO REPETIDO ME TIRE TRUE
     const repeat = productosDelCarrito.some(
