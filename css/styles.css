@@ -75,7 +75,10 @@ header {
 }
 
 .ver-carrito {
+  position: relative;
+  display: inline-block;
   font-size: 40px;
+  text-align: center;
   margin-right: 20px;
   margin-top: 3.5vh;
   cursor: pointer;
@@ -86,9 +89,9 @@ header {
   color: white;
   border-radius: 100%;
   font-size: 12px;
-  padding: 4px;
-  top: 90px;
-  right: 88px;
+  top: 0px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   display: none;
 }
