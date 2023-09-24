@@ -61,6 +61,14 @@ header {
   gap: 10px;
 }
 
+.info-product h2 {
+  font-size: 18px;
+  height: 36px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .precio {
   font-size: 18px;
   font-weight: 900;
@@ -140,6 +148,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin: 5px;
   padding: 4px;
 }
