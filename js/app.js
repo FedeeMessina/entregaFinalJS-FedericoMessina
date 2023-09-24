@@ -84,14 +84,36 @@ function agregarAlCarrito(e) {
 
 //FUNCION QUE ME MUESTRA EL MODAL DEL CARRITO CON SUS PRODUCTOS
 const llenarCarrito = () => {
-  if (productosDelCarrito.length === 0) {
-    modalContainer.style.display = "none"; // Oculta el modal si el carrito está vacío
-    return;
-  }
+  // if (productosDelCarrito.length === 0) {
+  //   modalContainer.style.display = "none";//OCULTA EL MODAL SI EL CARRITO ESTA VACIO
+  //   return;
+  // }
   //VACIO EL CONTENEDOR PARA QUE NO SE REPITA CADA VEZ QUE CLICKEO
   modalContainer.innerHTML = "";
 
   modalContainer.style.display = "flex";
+
+  if (productosDelCarrito.length === 0) {
+    // Si el carrito está vacío, muestra un mensaje en lugar de los productos
+    const carritoVacio = document.createElement("h3");
+    const carritoVacioMensaje = document.createElement("p");
+  
+    carritoVacio.innerText = "X";
+    carritoVacio.className = "carrito-vacio-button"
+    carritoVacioMensaje.innerText = "Tu carrito está vacío";
+    carritoVacioMensaje.className = "carrito-vacio-mensaje";
+
+    carritoVacio.addEventListener("click", () => {
+      modalContainer.style.display = "none";
+    });
+
+
+    modalContainer.appendChild(carritoVacio)
+    modalContainer.appendChild(carritoVacioMensaje);
+    return;
+  }
+
+
   //VOY CREANDO EL MODAL Y AGREGANDOLE SU CONTENIDO
   const modalHeader = document.createElement("div");
   modalHeader.className = "modal-header";

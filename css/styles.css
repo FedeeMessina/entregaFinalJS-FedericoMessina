@@ -156,3 +156,20 @@ header {
   text-align: center;
   background-color: rgba(58, 11, 168, 0.2);
 }
+
+.carrito-vacio-button {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 90%;
+  font-size: 25px;
+}
+
+.carrito-vacio-button:hover {
+  color: red;
+}
+
+.carrito-vacio-mensaje {
+  text-align: center;
+  margin: 5px;
+  padding: 4px;
+}
